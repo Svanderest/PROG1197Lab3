@@ -37,8 +37,12 @@ namespace Lab3
             else
             {
                 ToDo i = First;
-                while (i.Next != null)
+                while (i.Next != null && i.Priority <= item.Priority)
                     i = i.Next;
+                if(i.Next != null)
+                {
+                    item.Next = i.Next;
+                }
                 i.Next = item;
             }
         }
