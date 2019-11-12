@@ -9,6 +9,11 @@ namespace Lab3
 {
     public class Queue : IEnumerable<ToDo>
     {
+        public Queue()
+        {
+            First = null;
+        }
+
         public Queue(ToDo first)
         {
             First = first;
@@ -26,6 +31,7 @@ namespace Lab3
         }
 
         public ToDo First { get; private set; }
+
         public void Enqueue(ToDo item)
         {
             if (First == null)
@@ -83,6 +89,11 @@ namespace Lab3
             }
             return i;
         }
+
+        public void Clear()
+        {
+            First = null;
+        }
     }
 
     public class QueueEnumerator : IEnumerator<ToDo>, IDisposable
@@ -105,13 +116,11 @@ namespace Lab3
 
         public bool MoveNext()
         {
-            if (Q.First == null || (Current != null && Current.Next == null))
-                return false;
             if (Current == null)
-                Current = Q.First;                
+                Current = Q.First;
             else
                 Current = Current.Next;
-            return true;
+            return Current != null;
         }
 
         public void Reset()

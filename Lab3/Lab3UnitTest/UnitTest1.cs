@@ -132,5 +132,21 @@ namespace Lab3UnitTest
             //Assert
             Assert.IsTrue(condition);
         }
+
+        [TestMethod]
+        public void TestClear()
+        {
+            //Arrange
+            Queue target = MakeQueue();
+            target.Clear();
+
+            //Act
+            int expected = 0;
+            int actual = target.Count;
+
+            //Assert
+            Assert.AreEqual(expected, actual);
+
+        }
     }
 }
