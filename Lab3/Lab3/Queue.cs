@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab3
 {
-    public class Queue : IEnumerable<ToDo>
+    public class Queue : IEnumerable<ToDo>, IQueue<ToDo>
     {
         public Queue()
         {

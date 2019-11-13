@@ -8,7 +8,7 @@ namespace Lab3
 {
     public static class Priorities
     {
-        public static List<string> PriorityLevels = new List<string> { "Urgent", "High", "Normal", "Low" };
+        public static readonly string[] PriorityLevels = new string[] { "Urgent", "High", "Normal", "Low" };
 
         public static string GetPriority(int i)
         {
@@ -17,7 +17,7 @@ namespace Lab3
 
         public static int GetPriority(string level)
         {
-            return PriorityLevels.IndexOf(level);
+            return Array.IndexOf(PriorityLevels, level);                
         }
     }
 }
